@@ -1,2 +1,0 @@
-# app-ads.txt fuer Kevin Boehmisch / SlingSwing
-# Hier die Zeilen aus dem AppLovin-MAX-Dashboard (und ggf. AdMob) einfuegen.
