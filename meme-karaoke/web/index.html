@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#000000">
+  <title>Meme Karaoke</title>
+  <link rel="icon" href="data:,">
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow: hidden;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    /* the 800x480 game, as large as fits, centered */
+    #stage {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: min(100vw, calc(100dvh * 800 / 480));
+      aspect-ratio: 800 / 480;
+      height: auto;
+      max-height: 100dvh;
+    }
+    #stage > * {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #break { object-fit: cover; }
+    #video, .hidden-video {  /* only sources for the canvas; display:none would stop them on some phones */
+      position: fixed;
+      opacity: 0;
+      pointer-events: none;
+      width: 1px;
+      height: 1px;
+    }
+    #status, #rotate, #menu {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 16px;
+      text-align: center;
+      font-size: 20px;
+      background: #000;
+    }
+    #menu h1 {
+      margin: 0 0 8px;
+      color: #ffe600;
+      font-size: clamp(32px, 8vw, 56px);
+      letter-spacing: 2px;
+    }
+    #menu button {
+      width: min(340px, 90vw);
+      padding: 14px 16px;
+      border: 3px solid #fff;
+      border-radius: 10px;
+      background: #111;
+      color: #fff;
+      font: bold 20px Arial, Helvetica, sans-serif;
+      cursor: pointer;
+    }
+    #menu button small { display: block; margin-top: 4px; font-weight: normal; font-size: 14px; color: #bbb; }
+    #menu button:disabled { opacity: 0.4; cursor: default; }
+    #menu #join { border-color: #00dc00; color: #00dc00; }
+    #menu-note { margin: 0; max-width: 340px; font-size: 14px; color: #bbb; }
+    #share {
+      position: fixed;
+      left: 50%;
+      bottom: 12px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: calc(100vw - 32px);
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.8);
+      font-size: 14px;
+    }
+    #share-link { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; user-select: all; -webkit-user-select: all; }
+    #share-button {
+      flex: none;
+      padding: 8px 12px;
+      border: 0;
+      border-radius: 8px;
+      background: #00dc00;
+      color: #000;
+      font: bold 14px Arial, Helvetica, sans-serif;
+      cursor: pointer;
+    }
+    #legal { margin: 6px 0 0; font-size: 13px; }
+    #legal a, #consent a { color: #bbb; }
+    #consent {
+      position: fixed;
+      inset: 0;
+      overflow-y: auto;
+      padding: 16px;
+      background: #000;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+    #consent > div { max-width: 560px; margin: auto; }
+    #consent h2 { margin: 8px 0 10px; color: #ffe600; font-size: 22px; }
+    #consent ul { margin: 0 0 12px; padding-left: 20px; }
+    #consent li { margin-bottom: 6px; }
+    #consent-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 10px; }
+    #consent-buttons button {
+      padding: 12px 16px;
+      border: 3px solid #fff;
+      border-radius: 10px;
+      background: #111;
+      color: #fff;
+      font: bold 17px Arial, Helvetica, sans-serif;
+      cursor: pointer;
+    }
+    #consent-accept { border-color: #00dc00 !important; color: #00dc00 !important; }
+    /* German or English, after the browser's language (set in main.js) */
+    html:not([lang="de"]) [lang="de"], html[lang="de"] [lang="en"] { display: none !important; }
+    [hidden] { display: none !important; }
+    #rotate { display: none; z-index: 10; }
+    /* two players side by side need a wide picture */
+    @media (orientation: portrait) and (pointer: coarse) {
+      #rotate { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <img id="break" src="../break.gif" alt="" hidden>
+    <canvas id="screen"></canvas>
+  </div>
+  <video id="video" playsinline muted autoplay></video>
+  <div id="share" hidden>
+    <span>Invite:</span>
+    <span id="share-link"></span>
+    <button id="share-button">Copy link</button>
+  </div>
+  <div id="menu" hidden>
+    <h1>MEME KARAOKE</h1>
+    <button id="join" hidden>Join room <span></span><small>you are player 2</small></button>
+    <button id="local">Play here<small>2 players, one camera</small></button>
+    <button id="create">Play online<small>each with their own camera, invite by link</small></button>
+    <p id="menu-note"></p>
+    <p id="legal">
+      <a href="../datenschutz.html" target="_blank" lang="de">Datenschutz</a><a href="../datenschutz.html#en" target="_blank" lang="en">Privacy</a>
+      &middot;
+      <a href="../impressum.html" target="_blank" lang="de">Impressum</a><a href="../impressum.html#en" target="_blank" lang="en">Legal notice</a>
+    </p>
+  </div>
+  <!-- shown before every online game: the camera picture goes live to the other player -->
+  <div id="consent" hidden>
+    <div lang="de">
+      <h2>Online spielen: Deine Kamera geht live zum Gegner</h2>
+      <ul>
+        <li>Dein Kamerabild wird als <strong>Live-Video direkt an deinen Gegner</strong> übertragen, solange ihr verbunden seid. Er kann es sehen und technisch auch aufnehmen. Spiele nur mit Leuten, denen du vertraust, und achte darauf, wer und was sonst noch im Bild ist.</li>
+        <li>Deine <strong>IP-Adresse</strong> wird für den Verbindungsaufbau an deinen Gegner, an Supabase (Vermittlung des Spielraums) und an Cloudflare (Verbindungsaufbau) übermittelt.</li>
+        <li>Gesicht und Hände werden <strong>nur auf deinem Gerät</strong> ausgewertet. Wir speichern und zeichnen nichts auf.</li>
+        <li>Online-Spiel ab 16 Jahren, jünger nur mit Zustimmung deiner Eltern.</li>
+      </ul>
+      <p>Du kannst die Einwilligung jederzeit widerrufen, indem du das Spiel schließt. Details: <a href="../datenschutz.html" target="_blank">Datenschutzerklärung</a></p>
+    </div>
+    <div lang="en">
+      <h2>Playing online: your camera goes live to your opponent</h2>
+      <ul>
+        <li>Your camera picture is sent <strong>as live video directly to your opponent</strong> while you are connected. They can see it and could technically record it. Only play with people you trust, and mind who and what else is in the picture.</li>
+        <li>Your <strong>IP address</strong> is shared with your opponent, with Supabase (matching you in the game room) and with Cloudflare (connection setup).</li>
+        <li>Your face and hands are analysed <strong>only on your device</strong>. We store and record nothing.</li>
+        <li>Online play from age 16, younger only with your parents' permission.</li>
+      </ul>
+      <p>You can withdraw your consent at any time by closing the game. Details: <a href="../datenschutz.html#en" target="_blank">Privacy policy</a></p>
+    </div>
+    <div id="consent-buttons">
+      <button id="consent-accept"><span lang="de">Einverstanden, weiter</span><span lang="en">I agree, continue</span></button>
+      <button id="consent-back"><span lang="de">Zurück</span><span lang="en">Back</span></button>
+    </div>
+  </div>
+  <div id="status" hidden>Loading ...</div>
+  <div id="rotate">Turn your phone sideways.</div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
