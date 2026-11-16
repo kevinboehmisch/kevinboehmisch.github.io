@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KlipsyAI – Datenschutzerklärung / Privacy Policy</title>
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --line: #dde1e8;
+    --accent: #2458d6;
+    --box: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #151922;
+      --text: #e6e9ef;
+      --muted: #9aa3b5;
+      --line: #2b3240;
+      --accent: #7ea2ff;
+      --box: #1c212c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 28px; }
+  .game { font-weight: 800; font-size: 1.05rem; color: var(--accent); margin: 0 0 6px; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 12px; }
+  h2 { font-size: 1.25rem; margin: 40px 0 10px; }
+  h3 { font-size: 1.05rem; margin: 26px 0 6px; }
+  p, li { color: var(--text); }
+  .meta { color: var(--muted); font-size: 0.95rem; }
+  nav a { display: inline-block; margin-right: 18px; }
+  a { color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .box { background: var(--box); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+  .lang { border-top: 2px solid var(--line); margin-top: 64px; padding-top: 8px; }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <p class="game">KlipsyAI</p>
+  <h1>Datenschutzerklärung / Privacy Policy</h1>
+  <p class="meta">Stand / Last updated: 16.11.2026</p>
+  <nav><a href="#de">Deutsch</a><a href="#en">English</a><a href="#loeschen">Daten löschen</a><a href="#delete">Delete data</a><a href="../impressum.html">Impressum</a><a href="../index.html">Start</a></nav>
+</header>
+
+<!-- ======================= DEUTSCH ======================= -->
+<section id="de">
+<h2>1. Verantwortlicher</h2>
+<div class="box">
+  <p>Kevin Böhmisch<br>
+  Hauffstr. 8<br>
+  73110 Hattenhofen<br>
+  Deutschland<br>
+  E-Mail: <a href="mailto:kevinboehmisch@aol.com">kevinboehmisch@aol.com</a></p>
+</div>
+<p>Diese Datenschutzerklärung gilt für die iOS-App „KlipsyAI“. Die App macht aus deinen Rohclips (Videos aus deiner Mediathek oder der Dateien-App) automatisch geschnittene Kurzvideos („Shorts“) mit Untertiteln. Hier erfährst du, welche personenbezogenen Daten dabei verarbeitet werden, zu welchem Zweck und welche Rechte du hast.</p>
+
+<h2>2. Überblick</h2>
+<ul>
+  <li>Wir verlangen keine Registrierung und erfragen weder Namen noch E-Mail-Adresse. Die App erzeugt eine zufällige Nutzer-ID.</li>
+  <li><strong>Deine Videos verlassen dein iPhone nicht.</strong> Geschnitten und gerendert wird auf dem Gerät. Deine Original-Clips werden nur gelesen, nie verändert, kopiert oder hochgeladen.</li>
+  <li>Damit die App versteht, was in deinen Clips gesagt wird, wird der <strong>Ton</strong> zur Transkription an ElevenLabs und der daraus entstandene <strong>Text</strong> an die KI Claude von Anthropic gesendet, jeweils über unseren Server (Abschnitt 3 und 4).</li>
+  <li>Abos werden über den App Store abgewickelt und mit RevenueCat verwaltet (Abschnitt 5).</li>
+  <li>Nutzungsstatistiken mit PostHog erheben wir nur, wenn du einwilligst (Abschnitt 6).</li>
+</ul>
+<p>Eine automatisierte Entscheidungsfindung im Sinne von Art. 22 DSGVO findet nicht statt. Die KI entscheidet lediglich, welche Stellen deiner Clips in einen Short kommen; das Ergebnis kannst du jederzeit ändern oder verwerfen.</p>
+
+<h2>3. Verarbeitung deiner Clips</h2>
+<h3>a) Auf deinem Gerät</h3>
+<p>Mit deiner Erlaubnis greift die App auf die von dir ausgewählten Videos in deiner Mediathek bzw. der Dateien-App zu und speichert fertige Shorts in deiner Mediathek. Auf dem Gerät werden der Ton ausgelesen, Gesichter im Bild erkannt (für den Bildausschnitt; es findet keine Identifizierung von Personen statt) und die Shorts gerendert. Projekte, Transkripte und Schnittlisten liegen nur lokal in der App.</p>
+<h3>b) Transkription mit ElevenLabs</h3>
+<p>Der Ton deiner Clips (komprimiert, ohne Bild) wird über unseren Server an ElevenLabs (Eleven Labs, Inc., USA) gesendet, um ihn in Text mit Zeitstempeln umzuwandeln. Dabei können auch Inhalte erfasst werden, die du oder andere Personen in den Clips sagen. Weitere Informationen: <a href="https://elevenlabs.io/privacy-policy">elevenlabs.io/privacy-policy</a></p>
+<h3>c) Schnitt mit Claude (Anthropic)</h3>
+<p>Der Text (Transkript) wird über unseren Server an Anthropic (Anthropic, PBC, USA) gesendet. Die KI Claude wählt aus, welche Abschnitte in den Short kommen. Bild und Ton werden dabei nicht übermittelt. Anthropic nutzt über seine Schnittstelle übermittelte Daten nach eigenen Angaben nicht zum Training seiner Modelle. Weitere Informationen: <a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a></p>
+<p>Bevor zum ersten Mal Ton übertragen wird, weist dich die App darauf hin und fragt nach deinem Einverständnis. Rechtsgrundlage ist die Erfüllung des Nutzungsvertrags (Art. 6 Abs. 1 lit. b DSGVO): Ohne diese Verarbeitung kann die App keine Shorts erstellen. Wir selbst nutzen deine Inhalte nicht zum Training von KI-Modellen.</p>
+
+<h2>4. Unser Server (Cloudflare)</h2>
+<p>Unser Server läuft bei Cloudflare, Inc. (USA) und leitet Ton und Text an ElevenLabs bzw. Anthropic weiter. Ton und Text werden dort <strong>nicht gespeichert</strong>, nur durchgereicht. Gespeichert werden:</p>
+<ul>
+  <li>deine zufällige Nutzer-ID,</li>
+  <li>wie viele Shorts du im laufenden Monat erstellt hast und wie viele Minuten Ton hochgeladen wurden (für die Grenzen deines Abos),</li>
+  <li>kurzlebige Auftragsdaten (höchstens 2 Stunden) und dein Abo-Status (höchstens 5 Minuten zwischengespeichert).</li>
+</ul>
+<p>Beim Verbindungsaufbau verarbeitet Cloudflare technisch bedingt deine IP-Adresse. Rechtsgrundlage ist die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO) sowie unser berechtigtes Interesse an einem sicheren Betrieb und daran, Missbrauch zu verhindern (Art. 6 Abs. 1 lit. f DSGVO). Cloudflare verarbeitet die Daten in unserem Auftrag (Art. 28 DSGVO). Weitere Informationen: <a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a></p>
+
+<h2>5. Abos (App Store und RevenueCat)</h2>
+<p>KlipsyAI bietet Abos an (Starter, Pro, Ultimate, monatlich oder jährlich, teils mit kostenlosem Testzeitraum). Bezahlt wird ausschließlich über den App Store; deine Zahlungsdaten verarbeitet Apple in eigener Verantwortung, wir erhalten sie nicht. Zur Verwaltung der Abos nutzen wir RevenueCat (RevenueCat, Inc., USA). RevenueCat erhält deine zufällige Nutzer-ID, Informationen zu Käufen, Verlängerungen und Kündigungen (Produkt, Preis, Zeitpunkt, Laufzeit) sowie technische Gerätedaten (z. B. Betriebssystem, App-Version, Land des App Stores). Unser Server fragt bei RevenueCat ab, ob ein Abo besteht. Rechtsgrundlage ist die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO). Weitere Informationen: <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></p>
+<p>Hast du in die Nutzungsstatistik eingewilligt (Abschnitt 6), übermittelt RevenueCat Ereignisse zu deinem Abo (z. B. Start des Testzeitraums, Kauf, Verlängerung, Kündigung) unter derselben Nutzer-ID an PostHog.</p>
+
+<h2>6. Nutzungsstatistik mit PostHog (nur mit Einwilligung)</h2>
+<p>Beim ersten Start fragen wir, ob wir anonym mitzählen dürfen, wie die App genutzt wird. Nur wenn du zustimmst, sendet die App Daten an PostHog (PostHog, Inc., USA; Speicherung der Daten in der EU, Frankfurt). Damit verstehen wir, wo Nutzer hängenbleiben, und verbessern die App. Übermittelt werden:</p>
+<ul>
+  <li><strong>Ereignisse:</strong> z. B. Schritte im Einstieg, deine Antworten dort (welche Art von Videos du machst, wie viele Stunden pro Woche du schneidest), Aufrufe der Abo-Seite, gestartete und abgeschlossene Käufe, importierte Clips (Anzahl, Gesamtlänge), erstellte, gespeicherte, geteilte und bearbeitete Shorts, Fehler beim Erstellen</li>
+  <li><strong>Sitzungsaufzeichnung (Session Replay):</strong> vereinfachte Bildschirmaufnahmen deiner Nutzung der App. Texteingaben und Bilder (also auch Vorschaubilder deiner Videos) werden dabei vor dem Senden unkenntlich gemacht.</li>
+  <li><strong>Gerätedaten:</strong> Gerätemodell, Betriebssystem und Version, App-Version, Sprache, aus der IP-Adresse abgeleitetes Land bzw. ungefährer Ort</li>
+  <li><strong>Kennungen:</strong> deine zufällige Nutzer-ID</li>
+</ul>
+<p>Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Ohne Einwilligung werden keine Daten an PostHog gesendet; die App ist vollständig nutzbar. Du kannst die Einwilligung jederzeit mit Wirkung für die Zukunft im Tab „Konto“ unter „Nutzungsstatistik erlauben“ widerrufen. PostHog verarbeitet die Daten in unserem Auftrag (Art. 28 DSGVO). Weitere Informationen: <a href="https://posthog.com/privacy">posthog.com/privacy</a></p>
+<p>Werbe-Tracking findet nicht statt: Die App nutzt keine Werbe-ID (IDFA), zeigt keine Werbung und gibt keine Daten an Werbenetzwerke weiter.</p>
+
+<h2>7. Übermittlung in Drittländer</h2>
+<p>ElevenLabs, Anthropic, Cloudflare, RevenueCat und PostHog haben ihren Sitz in den USA bzw. verarbeiten Daten auch dort. Die Übermittlung erfolgt auf Grundlage des Angemessenheitsbeschlusses der EU-Kommission zum EU-US Data Privacy Framework, soweit der jeweilige Empfänger danach zertifiziert ist, andernfalls auf Grundlage von Standardvertragsklauseln der EU-Kommission (Art. 46 Abs. 2 lit. c DSGVO).</p>
+
+<h2>8. App Store</h2>
+<p>Beim Herunterladen der App und beim Abschluss eines Abos verarbeitet Apple Daten wie deine Kontodaten und Zahlungsinformationen in eigener Verantwortung. Kündigen kannst du dein Abo in den Einstellungen deines Apple-Accounts. Informationen: <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></p>
+
+<h2>9. Kontakt per E-Mail</h2>
+<p>Wenn du uns per E-Mail kontaktierst, verarbeiten wir deine Angaben zur Beantwortung deiner Anfrage (Art. 6 Abs. 1 lit. f DSGVO) und löschen sie, sobald sie dafür nicht mehr benötigt werden und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+
+<h2>10. Speicherdauer</h2>
+<ul>
+  <li><strong>Auf deinem Gerät:</strong> Projekte, Transkripte, Shorts in der App, Einstellungen und deine Nutzer-ID bleiben, bis du sie in der App löschst oder die App deinstallierst. In der Mediathek gespeicherte Shorts verwaltest du selbst. Diese Speicherung ist für den Betrieb der App unbedingt erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG).</li>
+  <li><strong>Unser Server:</strong> Monatszähler höchstens rund 13 Monate, Auftragsdaten höchstens 2 Stunden, Abo-Status höchstens 5 Minuten.</li>
+  <li><strong>PostHog:</strong> höchstens 12 Monate, danach gelöscht.</li>
+  <li><strong>ElevenLabs, Anthropic, RevenueCat, Apple:</strong> nach deren eigenen Löschfristen (siehe die verlinkten Datenschutzhinweise). RevenueCat speichert Kaufdaten, solange sie für die Abwicklung und gesetzliche Pflichten benötigt werden.</li>
+</ul>
+
+<h2>11. Kinder und Jugendliche</h2>
+<p>KlipsyAI richtet sich nicht an Kinder unter 13 Jahren. In die Nutzungsstatistik können nur Personen ab 16 Jahren einwilligen; mit deiner Zustimmung bestätigst du dein Alter (Art. 8 DSGVO). Bist du jünger, lehne bitte ab, sofern deine Eltern nicht zugestimmt haben. Solltest du feststellen, dass wir Daten eines Kindes verarbeitet haben, kontaktiere uns bitte, damit wir sie löschen können.</p>
+
+<h2>12. Deine Rechte</h2>
+<p>Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie das Recht, erteilte Einwilligungen jederzeit zu widerrufen (Art. 7 Abs. 3).</p>
+<p><strong>Widerspruchsrecht:</strong> Soweit wir Daten auf Grundlage berechtigter Interessen verarbeiten, kannst du dieser Verarbeitung aus Gründen, die sich aus deiner besonderen Situation ergeben, jederzeit widersprechen (Art. 21 DSGVO).</p>
+<p>Da wir keine Namen oder E-Mail-Adressen in der App erheben, können wir dich nur über deine Nutzer-ID zuordnen. Du findest sie in der App ganz unten im Tab „Konto“ unter „Deine Daten“. Bitte gib sie bei Anfragen an.</p>
+<p>Außerdem hast du das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO), insbesondere bei der Behörde deines Wohnorts oder der für uns zuständigen Behörde: Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg.</p>
+
+<h2 id="loeschen">13. Daten löschen lassen</h2>
+<p>KlipsyAI hat keine eigenen Nutzerkonten. So kannst du deine Daten löschen lassen:</p>
+<div class="box">
+  <ol>
+    <li>Öffne in der App den Tab <strong>„Konto“</strong> und notiere dir deine <strong>Nutzer-ID</strong> (ganz unten unter „Deine Daten“).</li>
+    <li>Schreibe eine E-Mail an <a href="mailto:kevinboehmisch@aol.com?subject=KlipsyAI%20Datenl%C3%B6schung">kevinboehmisch@aol.com</a> mit dem Betreff „KlipsyAI Datenlöschung“ und deiner Nutzer-ID.</li>
+    <li>Wir löschen die zu dieser ID gespeicherten Daten und bestätigen dir das innerhalb eines Monats (Art. 12 Abs. 3 DSGVO).</li>
+  </ol>
+</div>
+<p><strong>Das wird gelöscht:</strong> die Zähler auf unserem Server, alle Ereignisse und Sitzungsaufzeichnungen bei PostHog sowie der Kundendatensatz bei RevenueCat zu deiner Nutzer-ID.</p>
+<p><strong>Wichtig:</strong> Das Löschen beendet kein laufendes Abo. Kündige es vorher in den Einstellungen deines Apple-Accounts. Kaufbelege, die Apple oder wir aus gesetzlichen Gründen (z. B. Steuerrecht) aufbewahren müssen, bleiben bis zum Ablauf der Frist bestehen.</p>
+<p>Außerdem kannst du jederzeit selbst die Nutzungsstatistik im Tab „Konto“ abschalten, einzelne Aufnahmen in der App löschen oder die App deinstallieren; dabei werden alle Daten auf dem Gerät gelöscht.</p>
+
+<h2>14. Änderungen</h2>
+<p>Wir passen diese Datenschutzerklärung an, wenn sich die App oder die eingesetzten Dienste ändern. Es gilt die jeweils aktuelle Fassung auf dieser Seite.</p>
+</section>
+
+<!-- ======================= ENGLISH ======================= -->
+<section id="en" class="lang" lang="en">
+<h2>1. Controller</h2>
+<div class="box">
+  <p>Kevin Böhmisch<br>
+  Hauffstr. 8<br>
+  73110 Hattenhofen<br>
+  Germany<br>
+  Email: <a href="mailto:kevinboehmisch@aol.com">kevinboehmisch@aol.com</a></p>
+</div>
+<p>This privacy policy applies to the iOS app “KlipsyAI”. The app automatically turns your raw clips (videos from your photo library or the Files app) into edited short videos (“Shorts”) with captions. It explains which personal data is processed, for what purposes, and what rights you have.</p>
+
+<h2>2. Overview</h2>
+<ul>
+  <li>We do not require registration and do not ask for your name or email address. The app creates a random user ID.</li>
+  <li><strong>Your videos never leave your iPhone.</strong> Editing and rendering happen on the device. Your original clips are only read, never modified, copied or uploaded.</li>
+  <li>So the app understands what is said in your clips, the <strong>audio</strong> is sent to ElevenLabs for transcription and the resulting <strong>text</strong> to the AI Claude by Anthropic, both via our server (sections 3 and 4).</li>
+  <li>Subscriptions are handled through the App Store and managed with RevenueCat (section 5).</li>
+  <li>We only collect usage statistics with PostHog if you consent (section 6).</li>
+</ul>
+<p>We do not use automated decision-making within the meaning of Art. 22 GDPR. The AI only decides which parts of your clips go into a Short; you can change or discard the result at any time.</p>
+
+<h2>3. Processing of your clips</h2>
+<h3>a) On your device</h3>
+<p>With your permission, the app accesses the videos you select in your photo library or the Files app and saves finished Shorts to your photo library. On the device, the audio is extracted, faces in the picture are detected (to choose the frame; people are not identified) and the Shorts are rendered. Projects, transcripts and edit lists are stored only locally in the app.</p>
+<h3>b) Transcription with ElevenLabs</h3>
+<p>The audio of your clips (compressed, without picture) is sent via our server to ElevenLabs (Eleven Labs, Inc., USA) to convert it into text with timestamps. This may include content spoken by you or other people in the clips. More information: <a href="https://elevenlabs.io/privacy-policy">elevenlabs.io/privacy-policy</a></p>
+<h3>c) Editing with Claude (Anthropic)</h3>
+<p>The text (transcript) is sent via our server to Anthropic (Anthropic, PBC, USA). The AI Claude selects which sections go into the Short. Picture and audio are not transmitted. According to Anthropic, data submitted through its API is not used to train its models. More information: <a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a></p>
+<p>Before audio is transmitted for the first time, the app informs you and asks for your agreement. The legal basis is the performance of the user agreement (Art. 6(1)(b) GDPR): without this processing, the app cannot create Shorts. We ourselves do not use your content to train AI models.</p>
+
+<h2>4. Our server (Cloudflare)</h2>
+<p>Our server runs on Cloudflare, Inc. (USA) and forwards audio and text to ElevenLabs and Anthropic. Audio and text are <strong>not stored</strong> there, only passed through. We store:</p>
+<ul>
+  <li>your random user ID,</li>
+  <li>how many Shorts you created in the current month and how many minutes of audio were uploaded (for your subscription limits),</li>
+  <li>short-lived job data (at most 2 hours) and your subscription status (cached for at most 5 minutes).</li>
+</ul>
+<p>When connecting, Cloudflare necessarily processes your IP address. The legal basis is the performance of the contract (Art. 6(1)(b) GDPR) and our legitimate interest in secure operation and preventing abuse (Art. 6(1)(f) GDPR). Cloudflare processes the data on our behalf (Art. 28 GDPR). More information: <a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a></p>
+
+<h2>5. Subscriptions (App Store and RevenueCat)</h2>
+<p>KlipsyAI offers subscriptions (Starter, Pro, Ultimate, monthly or yearly, some with a free trial). Payment is handled exclusively by the App Store; Apple processes your payment data under its own responsibility and we do not receive it. To manage subscriptions we use RevenueCat (RevenueCat, Inc., USA). RevenueCat receives your random user ID, information about purchases, renewals and cancellations (product, price, time, term) and technical device data (e.g. operating system, app version, App Store country). Our server asks RevenueCat whether a subscription is active. The legal basis is the performance of the contract (Art. 6(1)(b) GDPR). More information: <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></p>
+<p>If you consented to usage statistics (section 6), RevenueCat sends events about your subscription (e.g. trial started, purchase, renewal, cancellation) to PostHog under the same user ID.</p>
+
+<h2>6. Usage statistics with PostHog (only with consent)</h2>
+<p>On first launch we ask whether we may anonymously count how the app is used. Only if you agree does the app send data to PostHog (PostHog, Inc., USA; data stored in the EU, Frankfurt). This helps us understand where users get stuck and improve the app. The following is transmitted:</p>
+<ul>
+  <li><strong>Events:</strong> e.g. onboarding steps, your answers there (what kind of videos you make, how many hours per week you edit), views of the subscription screen, started and completed purchases, imported clips (number, total length), Shorts created, saved, shared and edited, errors while creating</li>
+  <li><strong>Session replay:</strong> simplified screen recordings of your use of the app. Text input and images (including thumbnails of your videos) are masked before sending.</li>
+  <li><strong>Device data:</strong> device model, operating system and version, app version, language, country or approximate location derived from the IP address</li>
+  <li><strong>Identifiers:</strong> your random user ID</li>
+</ul>
+<p>The legal basis is your consent (Art. 6(1)(a) GDPR, Section 25(1) TDDDG). Without consent, no data is sent to PostHog; the app remains fully usable. You can withdraw your consent at any time with effect for the future in the “Konto” (account) tab under “Nutzungsstatistik erlauben”. PostHog processes the data on our behalf (Art. 28 GDPR). More information: <a href="https://posthog.com/privacy">posthog.com/privacy</a></p>
+<p>There is no advertising tracking: the app does not use the advertising ID (IDFA), shows no ads and shares no data with ad networks.</p>
+
+<h2>7. Transfers to third countries</h2>
+<p>ElevenLabs, Anthropic, Cloudflare, RevenueCat and PostHog are based in the USA or also process data there. Such transfers are based on the European Commission’s adequacy decision for the EU-US Data Privacy Framework where the recipient is certified under it, and otherwise on the European Commission’s standard contractual clauses (Art. 46(2)(c) GDPR).</p>
+
+<h2>8. App Store</h2>
+<p>When you download the app and take out a subscription, Apple processes data such as your account and payment information under its own responsibility. You can cancel your subscription in your Apple account settings. More information: <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></p>
+
+<h2>9. Contact by email</h2>
+<p>If you contact us by email, we process your details to answer your request (Art. 6(1)(f) GDPR) and delete them once they are no longer needed for this purpose and no statutory retention obligations apply.</p>
+
+<h2>10. Retention</h2>
+<ul>
+  <li><strong>On your device:</strong> projects, transcripts, Shorts in the app, settings and your user ID remain until you delete them in the app or uninstall it. You manage Shorts saved to your photo library yourself. This storage is strictly necessary to run the app (Section 25(2) no. 2 TDDDG).</li>
+  <li><strong>Our server:</strong> monthly counters for at most about 13 months, job data for at most 2 hours, subscription status for at most 5 minutes.</li>
+  <li><strong>PostHog:</strong> at most 12 months, then deleted.</li>
+  <li><strong>ElevenLabs, Anthropic, RevenueCat, Apple:</strong> according to their own retention periods (see the linked privacy notices). RevenueCat keeps purchase data as long as it is needed for processing and legal obligations.</li>
+</ul>
+
+<h2>11. Children and young people</h2>
+<p>KlipsyAI is not directed at children under 13. Only people aged 16 or over can consent to usage statistics; by consenting you confirm your age (Art. 8 GDPR). If you are younger, please decline unless your parents have agreed. If you believe we have processed data of a child, please contact us so that we can delete it.</p>
+
+<h2>12. Your rights</h2>
+<p>You have the right of access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20) and the right to withdraw consent at any time (Art. 7(3)).</p>
+<p><strong>Right to object:</strong> Where we process data based on legitimate interests, you may object to this processing at any time on grounds relating to your particular situation (Art. 21 GDPR).</p>
+<p>Because we do not collect names or email addresses in the app, we can only link data to you via your user ID. You can find it in the app at the bottom of the “Konto” (account) tab under “Deine Daten”. Please include it in your request.</p>
+<p>You also have the right to lodge a complaint with a data protection supervisory authority (Art. 77 GDPR), in particular in your place of residence or the authority responsible for us: the State Commissioner for Data Protection and Freedom of Information of Baden-Württemberg (Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg).</p>
+
+<h2 id="delete">13. Delete your data</h2>
+<p>KlipsyAI has no user accounts of its own. This is how you can have your data deleted:</p>
+<div class="box">
+  <ol>
+    <li>Open the <strong>“Konto”</strong> (account) tab in the app and note your <strong>user ID</strong> (at the bottom under “Deine Daten”).</li>
+    <li>Send an email to <a href="mailto:kevinboehmisch@aol.com?subject=KlipsyAI%20data%20deletion">kevinboehmisch@aol.com</a> with the subject “KlipsyAI data deletion” and your user ID.</li>
+    <li>We delete the data stored for this ID and confirm this to you within one month (Art. 12(3) GDPR).</li>
+  </ol>
+</div>
+<p><strong>What is deleted:</strong> the counters on our server, all events and session recordings at PostHog, and the customer record at RevenueCat for your user ID.</p>
+<p><strong>Important:</strong> Deleting does not end an active subscription. Cancel it first in your Apple account settings. Purchase records that Apple or we must keep for legal reasons (e.g. tax law) are kept until the retention period expires.</p>
+<p>You can also turn off usage statistics in the “Konto” tab at any time, delete individual recordings in the app, or uninstall the app, which deletes all data on the device.</p>
+
+<h2>14. Changes</h2>
+<p>We update this privacy policy when the app or the services used change. The current version on this page applies.</p>
+</section>
+
+</main>
+</body>
+</html>
